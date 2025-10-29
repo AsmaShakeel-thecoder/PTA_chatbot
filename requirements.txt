@@ -5,3 +5,5 @@ pandasql>=0.7.3
 python-dotenv>=1.0.0
 requests>=2.31.0          # if you later fetch files directly from OneDrive/SharePoint
 numpy>=1.26.0             # for numerical operations
+gdown
+
