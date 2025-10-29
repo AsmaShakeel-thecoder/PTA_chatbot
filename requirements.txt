@@ -1,0 +1,4 @@
+my_streamlit_app/
+├── app.py
+├── data.csv
+├── requirements.txt
