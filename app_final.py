@@ -28,7 +28,7 @@ def load_data(file_path):
         url = f"https://drive.google.com/uc?id={file_id}"
         output = "Combined_Idling_Report.csv"
         gdown.download(url, output, quiet=False)
-        df = pd.read_csv(output)
+        df = pd.read_csv(output, sep=",", encoding="utf-8")
         # Show columns for debugging
         st.write("Columns found:", list(df.columns))
         df['Start'] = pd.to_timedelta(df['Start'], errors='coerce')
@@ -218,6 +218,7 @@ if not filtered_df.empty:
     st.bar_chart(chart_data, x='Vehicle', y='Total Idling Hours')
 else:
     st.info("No data to display charts.")
+
 
 
 
