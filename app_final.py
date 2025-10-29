@@ -5,6 +5,7 @@ from openai import OpenAI
 from pandasql import sqldf
 import os
 import re
+import gdown
 
 # --- Session State Initialization ---
 if "messages" not in st.session_state:
@@ -25,10 +26,9 @@ def load_data(file_path):
     try:
         file_id = "1hQZl1-KTC74893N8lp--qIla6cvxH5sN"
         url = f"https://drive.google.com/uc?id={file_id}"
-        #df = pd.read_csv(url)
-        # 👇 Force UTF-8 decoding and tab delimiter
-        df = pd.read_csv(url, sep=None, engine="python")
-
+        output = "Combined_Idling_Report.csv"
+        gdown.download(url, output, quiet=False)
+        df = pd.read_csv(output)
         # Show columns for debugging
         st.write("Columns found:", list(df.columns))
         df['Start'] = pd.to_timedelta(df['Start'], errors='coerce')
@@ -218,6 +218,7 @@ if not filtered_df.empty:
     st.bar_chart(chart_data, x='Vehicle', y='Total Idling Hours')
 else:
     st.info("No data to display charts.")
+
 
 
 
