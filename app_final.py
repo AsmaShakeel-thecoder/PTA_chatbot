@@ -25,7 +25,7 @@ def load_data(file_path):
     try:
         url = r"https://powertrackafrica526-my.sharepoint.com/:x:/g/personal/reporting_powertrackafrica_com/Efk4xWJjHLtFiAB3mhfVTI8BMjI64Ru4Vdf0d6RKK7vEYw?e=e8oJeJ&download=1"
         #df = pd.read_csv(file_path)
-        df = pd.read_csv(file_path)
+        df = pd.read_csv(url)
         df['Start'] = pd.to_timedelta(df['Start'], errors='coerce')
         df['End'] = pd.to_timedelta(df['End'], errors='coerce')
         if 'Duration (HH:MM:SS)' in df.columns:
@@ -213,3 +213,4 @@ if not filtered_df.empty:
     st.bar_chart(chart_data, x='Vehicle', y='Total Idling Hours')
 else:
     st.info("No data to display charts.")
+
