@@ -1,4 +1,7 @@
-my_streamlit_app/
-├── app.py
-├── data.csv
-├── requirements.txt
+streamlit>=1.28.0
+pandas>=2.1.0
+openai>=1.3.0
+pandasql>=0.7.3
+python-dotenv>=1.0.0
+requests>=2.31.0          # if you later fetch files directly from OneDrive/SharePoint
+numpy>=1.26.0             # for numerical operations
